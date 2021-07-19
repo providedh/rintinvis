@@ -1,0 +1,7 @@
+app/static/node_modules
+bundle.js
+app/__pycache__
+data
+yarn-error.log
+app/static/dist
+DHVis-9b34ef9a6fe8.json
