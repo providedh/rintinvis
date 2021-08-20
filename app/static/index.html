@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <title>RinTinVis: Progressive Visualization of Uncertainty in Spanish Poetry Scansion</title>
+
+    <!-- Share card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@alexbensan" />
+    <meta name="twitter:creator" content="@alexbensan" />
+    <meta property="og:url" content="https://alexbs.me" />
+    <meta property="og:title" content="RinTinVis" />
+    <meta property="og:description"
+        content="RinTinVis: Progressive Visualization of Uncertainty in Spanish Poetry Scansion" />
+    <meta property="og:image" content="http://fredhohman.com/summit/static/share.png" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ad6753a8b.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css"
+        integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css"
+        integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+  	<script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+</head>
+<body>
+	 <div class="wrapper">
+            <header>
+                <div id="header-title-wrapper">
+                    <div style="display: flex">
+                        <!-- <span>
+                            <i id="menu-icon" class="material-icons feature-icon">menu</i>
+                        </span> -->
+                        <div id="header-title">RinTinVis</div>
+                    </div>
+                </div>
+                
+                <!-- <div class="header-content">
+                    <span class="smalltext-header">model</span>
+                    <div id="model-name" class="header-value">InceptionV1</div>
+                </div>
+
+                <div class="header-content">
+                    <span id="dataset-name" class="smalltext-header">dataset</span>
+                    <div id="dataset-value" class="header-value">ImageNet</div>
+                </div>
+
+                <div class="header-content">
+                    <span id="classes-name" class="smalltext-header">classes</span>
+                    <div id="classes-value" class="header-value">loading...</div>
+                </div>
+
+                <div class="header-content">
+                    <span id="instances-name" class="smalltext-header">instances</span>
+                    <div id="instances-value" class="header-value">loading...</div>
+                </div> -->
+                
+                <div id="header-icon">
+                    <div class="header-icon-wrapper header-message" style="padding-right: 20px;">
+                        <a class="header-icon-link" href="#post">
+                            What is <span class="summit">RinTinVis</span>?
+                        </a>
+                    </div>
+                    <div class="header-icon-wrapper" style="padding-right: 20px;">
+                        <a class="header-icon-link" href="https://fredhohman.com/papers/19-summit-vast.pdf">
+                            <i class="fas fa-lg fa-book"></i>
+                        </a>
+                    </div>
+                    <div class="header-icon-wrapper" style="padding-right: 20px;">
+                        <a class="header-icon-link" href="https://youtu.be/J4GMLvoH1ZU">
+                            <i class="fab fa-lg fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="header-icon-wrapper">
+                        <a class="header-icon-link" href="https://github.com/fredhohman/summit/">
+                            <i class="fab fa-lg fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div id="main">
+                <div id="top">
+                	<div id="left">
+                		<div id = left-inner>
+	                		<div id="left-inner-embedding-options">
+	                			<button type="submit" class="mdc-button mdc-button--raised left-option" id="start-button">
+								  <div class="mdc-button__ripple"></div>
+								  <span class="mdc-button__label">Start</span>
+								</button>
+	                		</div>
+	                		<div id="left-inner-embedding">
+	                			<svg id="vis-svg"></svg>
+	                		</div>
+                		</div>
+                	</div>
+                	<div id="right"></div>
+                </div>
+                <!-- <div id="middle"></div> -->
+                <div id="bottom">
+                    <div id='bottom-msg'>
+                        0 poems proccessed
+                    </div>
+                    
+                </div>
+            </div>
+
+    </div>
+</body>
+</html>
