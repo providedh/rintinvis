@@ -26,12 +26,17 @@ import rantanplan
 
 INCREMENT_UPDATE_NUMBER = 5
 
+is_stopped = True
+
 class RTPLManager:
 	
 	def __init__ (self):
-		self.__poems_df__ = pd.read_json(data_path / 'poems.json')
-		self.__poems_df__ = self.__poems_df__.drop(306)
-		self.__poems_df__['index'] = self.__poems_df__.index
+		poems_df = pd.read_json(data_path / 'poems.json')
+		poems_df = poems_df.drop(306)
+		poems_df = poems_df.drop(302)
+		poems_df['index'] = poems_df.index
+		poems_df = poems_df.sample(frac=1)
+		self.__poems_df__ = poems_df
 
 		self.__books_df__ = self.__poems_df__.groupby(by=['book'], as_index=False).size().reset_index()
 
@@ -104,19 +109,22 @@ def handle_custom_message(data):
 	next_update = []
 	n_updates = 0
 	for poem_index, poem_data in manager.get_poems_df().iterrows():
+		print(poem_index, poem_data['title'])
 		poem_scansion = manager.get_scansion_for_text(poem_data['body'])
+		if poem_scansion['n_verses'] < 4 or poem_scansion['n_verses'] > 70: #Don't include poems that are too short or too long
+			continue
 		poem_scansion.update({
 			'poem_index': poem_index, 
 			'book': poem_data['book'], 
-			'title': poem_data['title']
+			'title': poem_data['title'],
 		})
 		next_update.append(poem_scansion)
 		if len(next_update) == INCREMENT_UPDATE_NUMBER:
 			socketio.emit('scansion_update', data=next_update)
 			next_update = []
-			n_updates += 1 
-			if n_updates == 2:
-				break
+			# n_updates += 1 
+			# if n_updates == 3:
+			# 	break
 		
 
 
